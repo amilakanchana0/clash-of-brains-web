@@ -1,0 +1,15 @@
+.quize-img {
+    overflow: hidden;
+    height: 300px;
+    width: 100% !important;
+    position: relative;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+    }
+
+}

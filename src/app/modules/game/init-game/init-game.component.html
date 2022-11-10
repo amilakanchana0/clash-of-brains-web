@@ -1,0 +1,31 @@
+<div class="h-100 d-flex justify-content-center align-items-center">
+    <div class="row">
+        <div class="row pb-5 d-flex justify-content-center align-items-center">
+            <div class=" w-auto title">
+                Number of questions -
+            </div>
+
+            <mat-form-field class="mat-form-field   mat-form-field-100" appearance="outline">
+                <input matInput autocomplete="off" />
+            </mat-form-field>
+
+            <button mat-flat-button class="w-auto " color="primary">Genarate game</button>
+
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+            <mat-form-field class="mat-form-field w-75 sub-title" appearance="outline">
+                <input matInput autocomplete="off" value="www.clashofbrains.com/game=1135126" />
+                <mat-icon matSuffix> content_copy</mat-icon>
+            </mat-form-field>
+
+        </div>
+
+        <div class="row mt-5 d-flex justify-content-center">
+            <button mat-flat-button class="w-25 mt-3" color="primary" (click)="onStartGame()"> Start</button>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="px-5 py-3 container d-flex justify-content-between">
+    <div class="logo">
+        <img src="assets/logos/svg/logo-no-background.svg" />
+    </div>
+    <div class="porfile-info">
+        <div class="row h-100 d-flex justify-content-end align-items-center">
+            <div class="prfile-name ">
+                <strong>Testfye</strong>
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>person</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="onLogout()">Logout</button>
+            </mat-menu>
+
+        </div>
+    </div>
+</div>
+<div class="container h-75">
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,20 @@
+<div class="h-75 p-5">
+    <div class="row d-flex justify-content-center align-items-center ">
+        <h1 class="w-auto"> <strong>Leader board</strong> </h1>
+    </div>
+    <div class=" w-100 row h-75  d-flex justify-content-center align-items-center ">
+        <div class="h-100 w-auto">
+            <mat-list>
+                <mat-list-item *ngFor="let player of players">
+                    <mat-icon mat-list-icon>person</mat-icon>
+                    <div mat-line><strong>{{player.name}}</strong> </div>
+                    <div mat-line> {{player.points}} </div>
+                </mat-list-item>
+            </mat-list>
+        </div>
+
+    </div>
+    <div class="row d-flex justify-content-center align-items-center ">
+        <button mat-flat-button class="w-auto" color="primary" (click)="onStartGame()">Start new game</button>
+    </div>
+</div>

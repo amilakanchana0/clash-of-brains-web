@@ -1,0 +1,55 @@
+<div class="col-12 h-100">
+    <div class="row d-flex h-100">
+        <div class="col-8">
+            <div class="h-100 d-flex justify-content-center align-items-center">
+                <div class="row w-75">
+                    <div class="row mb-5 d-flex justify-content-center">
+                        <div class="title w-auto">
+                            Quize <strong>3</strong> of <strong>5</strong>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="quize-img w-auto">
+                            <img src="assets/quize.png" />
+                        </div>
+                    </div>
+
+                    <div class="row mt-5 d-flex justify-content-center">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <mat-form-field class="mat-form-field mat-form-field-100" appearance="outline">
+                                <input matInput autocomplete="off" />
+                            </mat-form-field>
+                            <button mat-flat-button class="w-auto " color="primary" (click)="onSubmit()">Submit
+                                answer</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-4  d-flex justify-content-center align-items-center">
+            <div class="w-100  p-5  d-flex flex-column justify-content-center">
+                <h4>You</h4>
+                <div class="row mb-4">
+                    <div class="mr-3 w-auto" *ngFor="let item of [1,1,1,1,1]">
+                        <mat-icon>circle</mat-icon>
+                    </div>
+
+                </div>
+                <h4>
+                    Sam Smith
+                </h4>
+                <div class="row">
+                    <div class="mr-3 w-auto" *ngFor="let item of [1,1,1,1,1]">
+                        <mat-icon>check_circle</mat-icon>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
