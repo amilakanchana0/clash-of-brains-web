@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { QuizeComponent } from './quize/quize.component';
 import { InitGameComponent } from './init-game/init-game.component';
 import { ResultComponent } from './result/result.component';
+import { WaitingDialogComponent } from './waiting-dialog/waiting-dialog.component';
 
 
 @NgModule( {
@@ -16,7 +17,8 @@ import { ResultComponent } from './result/result.component';
     HomeComponent,
     QuizeComponent,
     InitGameComponent,
-    ResultComponent
+    ResultComponent,
+    WaitingDialogComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 <div class="col-12 h-100">
-    <div class="row d-flex h-100">
+    <div class="row d-flex h-100" *ngIf="isBothJoined">
         <div class="col-8">
             <div class="h-100 d-flex justify-content-center align-items-center">
                 <div class="row w-75">
@@ -34,7 +34,7 @@
             <div class="w-100  p-5  d-flex flex-column justify-content-center">
                 <h4>You</h4>
                 <div class="row mb-4">
-                    <div class="mr-3 w-auto" *ngFor="let item of [1,1,1,1,1]">
+                    <div class="mr-3 w-auto" *ngFor="let item of ticks">
                         <mat-icon>circle</mat-icon>
                     </div>
 
@@ -43,7 +43,7 @@
                     Sam Smith
                 </h4>
                 <div class="row">
-                    <div class="mr-3 w-auto" *ngFor="let item of [1,1,1,1,1]">
+                    <div class="mr-3 w-auto" *ngFor="let item of ticks">
                         <mat-icon>check_circle</mat-icon>
                     </div>
                 </div>

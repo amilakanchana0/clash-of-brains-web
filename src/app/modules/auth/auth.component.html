@@ -23,11 +23,22 @@
                 </div>
                 <div class="row">
                     <div class="d-flex justify-content-end">
-                        <button class="mx-3" mat-flat-button color="primary">Sign up</button>
+                        <button class="mx-3" mat-flat-button color="primary" (click)="onSignUp()"
+                            [disabled]="loading$ |async">Sign up
+                            <mat-icon *ngIf="loading$ |async">
+                                <mat-spinner diameter="20">
+                                </mat-spinner>
+                            </mat-icon>
+                        </button>
 
-                        <button mat-flat-button color="primary" (click)="onSignIn()">Sign in</button>
+                        <button mat-flat-button color="primary" (click)="onSignIn()" [disabled]="loading$ |async">Sign
+                            in
+                            <mat-icon *ngIf="loading$ |async">
+                                <mat-spinner diameter="20">
+                                </mat-spinner>
+                            </mat-icon>
+                        </button>
                     </div>
-
 
                 </div>
             </div>

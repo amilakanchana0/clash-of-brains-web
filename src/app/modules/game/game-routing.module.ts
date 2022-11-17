@@ -20,7 +20,7 @@ const routes: Routes = [
         component: InitGameComponent,
       },
       {
-        path: 'game',
+        path: 'game/:id',
         component: QuizeComponent,
       },
       {

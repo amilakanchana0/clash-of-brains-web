@@ -8,17 +8,17 @@ body {
 
 }
 
-// body::before {
-//     content: "";
-//     background-image: url("../../assets/back1.jpg");
-//     background-size: cover;
-//     position: absolute;
-//     top: 0px;
-//     right: 0px;
-//     bottom: 0px;
-//     left: 0px;
-//     opacity: 0.02;
-// }
+body::before {
+    content: "";
+    background-image: url("../../assets/back1.jpg");
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.04;
+}
 
 .title {
     font-size: 36px;
