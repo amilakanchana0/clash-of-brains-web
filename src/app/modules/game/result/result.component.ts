@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component( {
   selector: 'app-result',
@@ -7,12 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: [ './result.component.scss' ]
 } )
 export class ResultComponent implements OnInit {
+  isWon: boolean;
 
   constructor (
-    private router: Router
+    private router: Router,
+    private activatedRouter: ActivatedRoute,
   ) { }
 
   ngOnInit (): void {
+    this.activatedRouter.params.subscribe( ( params: Params ) => {
+      this.isWon = params?.isWon == 'true';
+
+    } );
   }
 
   onPlayAgain (): void {

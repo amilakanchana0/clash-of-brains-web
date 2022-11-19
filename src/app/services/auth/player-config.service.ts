@@ -18,4 +18,9 @@ export class PlayerConfigService {
         return ( JSON.parse( localStorage.getItem( 'playerConfig' ) ) as PlayerConfig ).AccessToken;
     }
 
+    getCurrentPlayer (): Player {
+        const playerConfig = JSON.parse( localStorage.getItem( 'playerConfig' ) ) as PlayerConfig;
+        return { PlayerName: playerConfig.PlayerName, PlayerId: playerConfig.PlayerId } as Player;
+    }
+
 }

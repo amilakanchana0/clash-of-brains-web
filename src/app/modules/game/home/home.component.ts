@@ -15,12 +15,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   subscriptions: Subscription = new Subscription();
   constructor (
     private router: Router,
-    private playerService: PlayerService,
-    private playerSocketService: PlayerSocketService
+    private playerService: PlayerService
   ) { }
 
   ngOnInit (): void {
-    this.playerSocketService.getNewMessage();
     this.getTop5Players();
   }
 

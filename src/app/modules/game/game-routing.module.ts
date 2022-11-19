@@ -24,7 +24,7 @@ const routes: Routes = [
         component: QuizeComponent,
       },
       {
-        path: 'result',
+        path: 'result/:isWon',
         component: ResultComponent,
       }
     ]

@@ -1,6 +1,7 @@
 <div class="h-100 d-flex flex-column justify-content-center align-items-center">
     <div class="row pb-5 d-flex justify-content-center align-items-center">
-        <h1>You won, Well played!!</h1>
+        <h1 *ngIf="isWon">You won, Well played!!</h1>
+        <h1 *ngIf="!isWon">You lose, Bad luck</h1>
     </div>
 
 
