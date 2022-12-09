@@ -1,7 +1,7 @@
 import { MaterialModule } from './../../shared/material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { GameRoutingModule } from './game-routing.module';
 import { GameComponent } from './game.component';
 import { HomeComponent } from './home/home.component';
@@ -23,7 +23,8 @@ import { WaitingDialogComponent } from './waiting-dialog/waiting-dialog.componen
   imports: [
     CommonModule,
     GameRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ClipboardModule
   ]
 } )
 export class GameModule { }

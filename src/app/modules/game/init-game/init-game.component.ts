@@ -1,3 +1,4 @@
+import { NotificationService } from './../../../services/layout/notification.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
@@ -20,10 +21,9 @@ export class InitGameComponent implements OnInit, OnDestroy {
   newGameId: number;
   constructor (
     private router: Router,
-
     private gameService: GameService,
-
-    private apiErrorHandlingService: ApiErrorHandlingService
+    private apiErrorHandlingService: ApiErrorHandlingService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit (): void {
@@ -41,6 +41,16 @@ export class InitGameComponent implements OnInit, OnDestroy {
       } ) );
     }
 
+  }
+
+  onClipboardCopy ( isSuccessful: boolean ): void {
+    if ( isSuccessful ) {
+
+      this.notificationService.openSnackBar( 'URL coppied to clipboard' );
+    } else {
+
+      this.notificationService.openSnackBar( 'Failed to copy URL, try again' );
+    }
   }
 
   handlleApiError (): void {

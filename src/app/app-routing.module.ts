@@ -5,8 +5,8 @@ import { AuthGuard } from './services/auth/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import( './modules/game/game.module' ).then( ( m: any ) => m.GameModule ),
-    canActivate: [ AuthGuard ]
+    loadChildren: () => import( './modules/game/game.module' ).then( ( m: any ) => m.GameModule )
+
   },
   {
     path: 'autheticate',

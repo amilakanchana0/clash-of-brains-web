@@ -49,7 +49,11 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   redirectAfterAuthenticate (): void {
     if ( this.authService.isLoggedIn() ) {
-      this.router.navigate( [ '/' ] )
+      if ( this.playerConfigService.gameId ) {
+        this.router.navigate( [ '/game', this.playerConfigService.gameId ] );
+      } else {
+        this.router.navigate( [ '/' ] );
+      }
     }
 
   }

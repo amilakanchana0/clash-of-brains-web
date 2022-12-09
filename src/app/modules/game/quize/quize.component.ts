@@ -1,3 +1,4 @@
+import { GameStatus } from './../../../constants/game-status.type';
 import { GamePlayerQuestionMap } from './../../../models/game-player-question-map.model';
 import { Player } from './../../../models/player.model';
 import { PlayerConfigService } from './../../../services/auth/player-config.service';
@@ -46,7 +47,7 @@ export class QuizeComponent implements OnInit, OnDestroy {
     this.currentQuestionIndex = 0;
     this.getCurrentPlayer();
     this.getQuize();
-    this.joinGame();
+    this.getGame();
     this.playerSocketService.onPlayerJoined();
     this.playerSocketService.onAnswerSubmit();
     this.setOpponentGameState();
@@ -54,43 +55,53 @@ export class QuizeComponent implements OnInit, OnDestroy {
 
   getCurrentPlayer (): void {
     this.currntPlayer = this.playerConfigService.getCurrentPlayer();
+    this.playerConfigService.gameId = null;
   }
 
   setOpponentGameState (): void {
     this.subscriptions.add( this.playerSocketService.oppoenentGame.subscribe( ( oppoenentGame: GamePlayerMap ) => {
-      console.log( 'oppr', oppoenentGame )
       if ( oppoenentGame && oppoenentGame.GameId == this.game.GameId && oppoenentGame.PlayerId == this.opponentGame.PlayerId ) {
         this.opponentGame = oppoenentGame;
         if ( this.opponentGame.Questions.every( ( question: GamePlayerQuestionMap ) => question.IsCompleted ) ) {
-          this.router.navigate( [ '/result', false ] );
+          this.router.navigate( [ '/result', false, this.game.GameId ] );
         }
       }
     } ) );
   }
 
 
-  joinGame (): void {
+  joinGame ( gameId: number ): void {
+    this.subscriptions.add( this.gameService.joinGame( gameId ).subscribe( ( res: any ) => {
+      if ( res.Content.length < 2 ) {
+        this.waitingForOtherPlayer();
+      } else {
+        this.gamePlayers = res.Content;
+        this.setPlayers();
+        this.isBothJoined = true;
+      }
+    } ) );
+  }
+
+  getGame (): void {
     this.activatedRouter.params.subscribe( ( params: Params ) => {
       if ( params.id ) {
-        this.subscriptions.add( this.gameService.joinGame( params.id ).subscribe( ( res: any ) => {
-          if ( res.Content.length < 2 ) {
-            this.waitingForOtherPlayer();
-          } else {
-            this.gamePlayers = res.Content;
-            this.setPlayers();
-            this.isBothJoined = true;
-          }
-        } ) );
         this.subscriptions.add( this.gameService.getGameById( params.id ).subscribe( ( res: any ) => {
           this.game = res.Content;
+          if ( this.game.Status != GameStatus.Completed ) {
+            this.joinGame( params.id );
+          } else {
+            this.router.navigate( [ '/' ] );
+          }
+
         } ) );
+
       }
     } );
   }
 
   waitingForOtherPlayer (): void {
     const ref: MatDialogRef<WaitingDialogComponent> = this.matDialog.open( WaitingDialogComponent, {
-      width: '50vw',
+      width: '70vw',
       height: '60vh',
       disableClose: true,
     } );
@@ -130,7 +141,7 @@ export class QuizeComponent implements OnInit, OnDestroy {
       this.isInvalidAnswer = true;
     }
     if ( this.currentQuestionIndex >= this.currentPlayerGame.Questions.length ) {
-      this.router.navigate( [ '/result', true ] );
+      this.router.navigate( [ '/result', true, this.game.GameId ] );
     }
 
   }

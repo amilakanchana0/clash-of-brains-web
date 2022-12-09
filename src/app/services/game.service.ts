@@ -26,4 +26,8 @@ export class GameService {
     onAnswerSubmit ( gamePlayerMap: GamePlayerMap ): Observable<any> {
         return this.httpService.post( `${ environment.apiURL }onAnswerSubmit`, gamePlayerMap );
     }
+
+    updateWinner ( id: number ): Observable<any> {
+        return this.httpService.get( `${ environment.apiURL }updateWinner?gameId=${ id }` );
+    }
 }
