@@ -1,0 +1,42 @@
+<div class="h-100 d-flex justify-content-center align-items-center">
+    <div class="row">
+        <div class="row  d-flex justify-content-center align-items-center">
+            <div class=" w-auto title">
+                Number of questions
+            </div>
+
+        </div>
+        <div class="row pb-3 d-flex justify-content-center align-items-center">
+
+            <mat-form-field class="mat-form-field   mat-form-field-100" appearance="outline">
+                <input matInput autocomplete="off" [value]="5" type="number" [formControl]="noOfQuestions" />
+            </mat-form-field>
+
+            <button mat-flat-button class="w-auto " color="primary" (click)="onGenerateGame()"
+                [disabled]="loading$ |async">Genarate game <mat-icon *ngIf="loading$ |async">
+                    <mat-spinner diameter="20">
+                    </mat-spinner>
+                </mat-icon></button>
+
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+            <mat-form-field class="mat-form-field w-75 sub-title" appearance="outline">
+                <input matInput autocomplete="off" readonly [formControl]="url">
+                <button [disabled]="!url.value" mat-icon-button matSuffix [cdkCopyToClipboard]="url.value"
+                    (cdkCopyToClipboardCopied)="onClipboardCopy($event)">
+                    <mat-icon> content_copy</mat-icon>
+                </button>
+            </mat-form-field>
+
+        </div>
+
+        <div class="row mt-5 d-flex justify-content-center">
+            <button [disabled]="!url.value" mat-flat-button class="w-25 mt-3" color="primary" (click)="onStartGame()">
+                Start</button>
+
+        </div>
+    </div>
+
+</div>

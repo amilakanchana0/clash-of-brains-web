@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins' !important;
+    scroll-behavior: smooth;
+
+}
+
+// body::before { 
+//     background-image: url("../../assets/back1.jpg");
+//     background-size: cover;
+//     position: absolute;
+//     top: 0px;
+//     right: 0px;
+//     bottom: 0px;
+//     left: 0px;
+//     opacity: 0.04;
+// }
+
+.title {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.sub-title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.w-auto {
+    width: auto;
+    height: min-content;
+
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+}
+
+.mat-form-field-100 {
+    width: 100px !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 10px 0 !important;
+}
+
+//090C16
